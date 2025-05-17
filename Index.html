@@ -39,6 +39,14 @@
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
       z-index: 1000;
     }
+    .button-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .button-row button {
+      flex: 1;
+    }
   </style>
 </head>
 <body>
@@ -59,7 +67,10 @@
   <label for="inputText">Original Text</label>
   <textarea id="inputText" placeholder="Enter your text here..."></textarea>
 
-  <button onclick="rewriteText()">Rewrite</button>
+  <div class="button-row">
+    <button onclick="rewriteText()">Rewrite</button>
+    <button onclick="clearInput()">Clear</button>
+  </div>
 
   <label for="output">Rewritten Text</label>
   <textarea id="output" readonly></textarea>
@@ -132,6 +143,10 @@
       setTimeout(() => {
         notification.style.display = "none";
       }, 2000);
+    }
+
+    function clearInput() {
+      document.getElementById("inputText").value = "";
     }
   </script>
 </body>
